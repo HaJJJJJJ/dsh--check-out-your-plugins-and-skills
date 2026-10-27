@@ -49,8 +49,8 @@ DeepSeek Harness 的技能分散在五个位置，插件信息藏在 profile 的
 
 任选其一：
 
-- **下载发布包**：[HarnessIndex-v1.0.0.zip](https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip)，解压到任意目录（例如 `%LOCALAPPDATA%\HarnessIndex` 或桌面上的一个文件夹）。完整性校验值见 [HarnessIndex-v1.0.0.zip.sha256](https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip.sha256)，可用 `certutil -hashfile HarnessIndex-v1.0.0.zip SHA256` 核对。
-- **克隆仓库**：`git clone https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills.git`，直接用仓库里的文件。
+- **下载发布包**：[HarnessIndex-v1.0.0.zip](https://github.com/HaJJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip)，解压到任意目录（例如 `%LOCALAPPDATA%\HarnessIndex` 或桌面上的一个文件夹）。完整性校验值见 [HarnessIndex-v1.0.0.zip.sha256](https://github.com/HaJJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip.sha256)，可用 `certutil -hashfile HarnessIndex-v1.0.0.zip SHA256` 核对。
+- **克隆仓库**：`git clone https://github.com/HaJJJJJJ/dsh--check-out-your-plugins-and-skills.git`，直接用仓库里的文件。
 
 下面的命令都在「解压后的目录」或「仓库根目录」里执行。
 
