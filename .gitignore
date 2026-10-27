@@ -1,0 +1,23 @@
+# 运行时数据（端口、日志、扫描状态、本机绝对路径缓存）
+data/
+
+# 本机快捷方式（内含绝对路径，不进仓库）
+preview.lnk
+
+# 构建与临时产物（本项目的发布包不包含 PE 文件）
+dist/
+*.exe
+*.pdb
+*.log
+*.tmp
+*.bak
+*.zip
+*.sha256
+
+# 编辑器 / 系统
+.vs/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+desktop.ini

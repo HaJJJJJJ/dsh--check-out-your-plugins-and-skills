@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "plugins": {
+    "@liustack/modlens": {
+      "label": "ModLens 视觉桥",
+      "summary": "给纯文本模型接上眼睛：读取截图、照片与图表，把图中文字和结构交回模型。",
+      "tags": ["视觉", "图片阅读", "多模型"]
+    },
+    "@momasiku/dsh-pilot": {
+      "label": "桌面操作员",
+      "summary": "让模型直接操作 Windows 桌面：移动、点击、输入，可驱动 CAD、WPS、浏览器与微信。",
+      "tags": ["桌面自动化", "Windows", "RPA"]
+    },
+    "@tt-a1i/archify-dsh": {
+      "label": "Archify 架构图",
+      "summary": "把系统架构、流程与时序做成可探索的独立 HTML，带明暗主题与多格式导出。",
+      "tags": ["架构图", "可视化", "HTML"]
+    },
+    "billion-context": {
+      "label": "长会话上下文",
+      "summary": "自动压缩历史上下文、控制 token 预算，让长对话与大型代码任务持续推进。",
+      "tags": ["上下文", "压缩", "省 token"]
+    },
+    "dsh-better-sidebar": {
+      "label": "增强侧边栏",
+      "summary": "在会话侧边提供文件树、编辑器、变更、任务与侧聊，减少窗口来回切换。",
+      "tags": ["侧边栏", "文件树", "编辑器"]
+    },
+    "dsh-plugin-save-token": {
+      "label": "省 token 压缩",
+      "summary": "结构感知压缩与 TOON 编码，在保留关键信息的前提下缩短上下文与工具输出。",
+      "tags": ["省 token", "压缩", "TOON"]
+    },
+    "dsh-ppt": {
+      "label": "演示文稿工坊",
+      "summary": "一句话或一份文档生成 HTML 放映页与可编辑 PPTX，支持数字溯源、情景推演与看图修复。",
+      "tags": ["PPT", "幻灯片", "原生图表"]
+    },
+    "dsh-skill-hub": {
+      "label": "技能中枢",
+      "summary": "在设置里浏览、启用、更新与安装技能，并跟踪技能来源、调用次数与使用时间。",
+      "tags": ["技能管理", "市场", "更新"]
+    },
+    "dsh-skill-lieflat-less-ai-tone": {
+      "label": "去 AI 味改写",
+      "summary": "按白名单规则清理中文写作里的 AI 腔与套话，保留原意与文章骨架。",
+      "tags": ["写作", "改写", "中文"]
+    },
+    "dsh-whale-widget": {
+      "label": "余额小鲸鱼",
+      "summary": "桌面小挂件显示余额、今日消耗与峰谷时段，配气泡提醒与音效。",
+      "tags": ["余额", "挂件", "桌面"]
+    },
+    "dshmarket": {
+      "label": "插件市场",
+      "summary": "可视化浏览、搜索与安装 DSH 插件，集中查看版本与可用更新。",
+      "tags": ["插件市场", "安装", "更新"]
+    }
+  },
+  "skills": {
+    "impeccable": {
+      "label": "界面设计",
+      "summary": "从视觉方向到落地页与组件，按成品标准设计、审查并打磨前端界面。",
+      "tags": ["UI", "设计系统", "前端"]
+    },
+    "nature-academic-search": {
+      "label": "文献检索",
+      "summary": "跨库检索文献、核对引文、构建 MeSH 策略，并做引用影响力审计。",
+      "tags": ["文献", "检索", "引文"]
+    },
+    "nature-citation": {
+      "label": "CNS 引用",
+      "summary": "为论文主张寻找并核验 Nature/CNS 系列文献，输出主张—来源映射与文献管理器导出。",
+      "tags": ["引用", "CNS", "证据"]
+    },
+    "nature-data": {
+      "label": "数据可用性",
+      "summary": "起草或审查数据与代码可用性声明、数据访问路径、仓库计划与 FAIR 元数据。",
+      "tags": ["数据声明", "FAIR", "仓库"]
+    },
+    "nature-downloader": {
+      "label": "全文获取",
+      "summary": "合规获取学术全文：CNKI 机构访问、英文 OA、出版商 API 与补充材料下载。",
+      "tags": ["全文", "下载", "CNKI"]
+    },
+    "nature-experiment-log": {
+      "label": "实验日志",
+      "summary": "把实验图片、语音与文字整理成带 YAML frontmatter 的标准 Markdown 日志。",
+      "tags": ["实验记录", "图片", "语音"]
+    },
+    "nature-figure": {
+      "label": "论文配图",
+      "summary": "用 Python 或 R 创建、修改、审查与导出投稿级科研图，支持多面板与机制示意图。",
+      "tags": ["科研绘图", "Python", "R"]
+    },
+    "nature-image2ppt": {
+      "label": "图片转 PPT",
+      "summary": "把幻灯片截图、扫描 PDF 或纯图 PPTX 重建成对象级可编辑 PowerPoint。",
+      "tags": ["OCR", "PPTX", "重建"]
+    },
+    "nature-literature-pipeline": {
+      "label": "文献流水线",
+      "summary": "多源检索、六维打分、精读、格式化交付与归档，可用 cron 每日自动运行。",
+      "tags": ["自动化", "检索", "归档"]
+    },
+    "nature-paper-card": {
+      "label": "论文精读卡",
+      "summary": "拆解单篇论文的方法、实验到主张的证据链、局限与研究启发，输出结构化精读卡。",
+      "tags": ["精读", "证据链", "笔记"]
+    },
+    "nature-paper-to-patent": {
+      "label": "论文转专利",
+      "summary": "把论文或发明材料整理成有证据支撑的中文发明专利草案、技术交底书与 DOCX 包。",
+      "tags": ["专利", "技术交底", "DOCX"]
+    },
+    "nature-paper-trans": {
+      "label": "论文翻译",
+      "summary": "把英文论文 PDF 指定页或全文逐页译成中文图片型 PDF，尽量保留版式、图表与公式。",
+      "tags": ["翻译", "PDF", "版式"]
+    },
+    "nature-paper-xray": {
+      "label": "论文透视",
+      "summary": "不照抄摘要，重建作者真实的起点、关键赌注与推导过程，用具体数字讲透一篇论文。",
+      "tags": ["精读", "方法论", "推导"]
+    },
+    "nature-paper2ppt": {
+      "label": "论文汇报 PPT",
+      "summary": "从论文或阅读笔记生成中文学术 PPTX，带来源图与讲者备注。",
+      "tags": ["PPT", "文献汇报", "组会"]
+    },
+    "nature-polishing": {
+      "label": "论文润色",
+      "summary": "在不改动事实、术语与证据边界的前提下润色、翻译或压缩学术文本。",
+      "tags": ["润色", "学术英语", "精简"]
+    },
+    "researchwrite": {
+      "label": "研究计划",
+      "summary": "从证据出发撰写、修改或审查研究计划、开题报告与科研项目申请书。",
+      "tags": ["开题", "申请书", "研究设计"]
+    },
+    "nature-reader": {
+      "label": "中英对照阅读",
+      "summary": "生成以原文为依据的中英对照论文阅读页，对齐正文、图表与公式。",
+      "tags": ["对照", "阅读", "全文"]
+    },
+    "nature-ref-verifier": {
+      "label": "参考文献核验",
+      "summary": "逐条多源交叉验证作者、标题、年份、卷期与页码，标记冲突并输出结构化报告。",
+      "tags": ["参考文献", "核验", "Zotero"]
+    },
+    "nature-response": {
+      "label": "审稿回复",
+      "summary": "起草、审查或修改逐点回复、返修信与带修改标记的稿件包。",
+      "tags": ["审稿", "返修", "回复"]
+    },
+    "nature-reviewer": {
+      "label": "模拟审稿",
+      "summary": "以审稿人视角评估论文的重要性、有效性与主要/次要问题，给出有证据的模拟意见。",
+      "tags": ["审稿", "自审", "评估"]
+    },
+    "nature-shared": {
+      "label": "技能共享库",
+      "summary": "为已安装的 Nature 技能提供共享参考文件，不单独作为用户工作流调用。",
+      "tags": ["共享", "内部", "参考"]
+    },
+    "nature-social-science": {
+      "label": "社科选题",
+      "summary": "从选题构思、文献版图、论证组织到新颖性审计，打磨社科研究与开题论证。",
+      "tags": ["社科", "选题", "论证"]
+    },
+    "nature-statistics": {
+      "label": "统计审查",
+      "summary": "审查实验单位、重复、不确定性、检验与图注统计，回应审稿人的统计疑问。",
+      "tags": ["统计", "可重复性", "审稿"]
+    },
+    "nature-writing": {
+      "label": "论文写作",
+      "summary": "从作者提供的证据出发起草或重构论文论证、章节与首次投稿材料。",
+      "tags": ["写作", "结构", "投稿"]
+    },
+    "summarize": {
+      "label": "摘要提取",
+      "summary": "抓取并总结网页、文件、YouTube 视频与转录文本，可输出 JSON。",
+      "tags": ["摘要", "网页", "转录"]
+    },
+    "archify": {
+      "label": "架构图",
+      "summary": "把系统架构、流程、时序与状态图做成可探索的独立 HTML，支持明暗主题与导出。",
+      "tags": ["架构图", "Mermaid", "导出"]
+    },
+    "dsh-ppt": {
+      "label": "演示文稿",
+      "summary": "从一句话或文档生成完整 HTML 放映页与可编辑 PPTX，含主题、动效与中英双语。",
+      "tags": ["PPT", "HTML", "双语"]
+    },
+    "lieflat-less-ai-tone": {
+      "label": "去 AI 味",
+      "summary": "按明确规则识别并改写写作中的 AI 痕迹，未命中的文字保持原样。",
+      "tags": ["写作", "改写", "规则"]
+    },
+    "office": {
+      "label": "Office 总入口",
+      "summary": "创建、编辑、检查与转换 Word、Excel、PowerPoint 与 PDF，先加载它再选具体流程。",
+      "tags": ["Office", "入口", "转换"]
+    },
+    "office-docx": {
+      "label": "Word 文档",
+      "summary": "创建、读取、编辑与校验 .docx 文档。",
+      "tags": ["Word", "DOCX", "排版"]
+    },
+    "office-export-pdf": {
+      "label": "导出 PDF",
+      "summary": "用 LibreOffice Kit 把 Office 文档转换为指定 PDF。",
+      "tags": ["PDF", "导出", "LibreOffice"]
+    },
+    "office-pptx": {
+      "label": "PowerPoint",
+      "summary": "创建、读取、编辑与校验 .pptx 演示文稿。",
+      "tags": ["PPTX", "演示", "编辑"]
+    },
+    "office-recalculate": {
+      "label": "表格重算",
+      "summary": "用 LibreOffice Kit 刷新电子表格公式缓存并核对计算结果。",
+      "tags": ["Excel", "公式", "重算"]
+    },
+    "office-render": {
+      "label": "文档渲染",
+      "summary": "用 LibreOffice Kit 渲染文档图片，检查真实版式与视觉布局。",
+      "tags": ["渲染", "检查", "版式"]
+    },
+    "office-xlsx": {
+      "label": "Excel 工作簿",
+      "summary": "读取、创建、编辑与校验 .xlsx 工作簿、数据与公式。",
+      "tags": ["Excel", "数据", "公式"]
+    },
+    "diagnose-windows-sandbox-acl": {
+      "label": "沙箱 ACL 诊断",
+      "summary": "Windows 上遇到意外的 DSH 沙箱拒绝时，检查路径与祖先目录 ACL 并修复可证明的问题。",
+      "tags": ["Windows", "沙箱", "ACL"]
+    }
+  }
+}

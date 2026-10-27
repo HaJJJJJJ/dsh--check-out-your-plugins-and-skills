@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0A09">
+  <meta name="color-scheme" content="dark">
+  <title>Harness Index · 本机插件与技能</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/app.css?v=11">
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="rail" aria-label="目录与筛选">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-h">H</span>
+          <span class="brand-spark"></span>
+        </span>
+        <div class="brand-copy">
+          <span class="brand-name">Harness Index</span>
+          <span class="brand-sub mono">LOCAL INVENTORY / 只读</span>
+        </div>
+      </div>
+
+      <nav class="rail-nav" aria-label="类型">
+        <p class="rail-label">目录</p>
+        <button class="rail-item is-active" type="button" data-filter="all" aria-pressed="true">
+          <span class="rail-item-label">全部条目</span>
+          <span class="rail-count" id="count-all">—</span>
+        </button>
+        <button class="rail-item" type="button" data-filter="plugin" aria-pressed="false">
+          <span class="rail-item-label">插件</span>
+          <span class="rail-count" id="count-plugins">—</span>
+        </button>
+        <button class="rail-item" type="button" data-filter="skill" aria-pressed="false">
+          <span class="rail-item-label">技能</span>
+          <span class="rail-count" id="count-skills">—</span>
+        </button>
+      </nav>
+
+      <nav class="rail-nav" aria-label="技能来源" id="source-nav">
+        <p class="rail-label">技能来源</p>
+        <button class="rail-item rail-item-sub" type="button" data-source="user" aria-pressed="false">
+          <span class="rail-item-label">用户目录</span>
+          <span class="rail-count" id="count-user">—</span>
+        </button>
+        <button class="rail-item rail-item-sub" type="button" data-source="plugin" aria-pressed="false">
+          <span class="rail-item-label">插件附带</span>
+          <span class="rail-count" id="count-plugin-skills">—</span>
+        </button>
+        <button class="rail-item rail-item-sub" type="button" data-source="builtin" aria-pressed="false">
+          <span class="rail-item-label">内置</span>
+          <span class="rail-count" id="count-builtin">—</span>
+        </button>
+        <button class="rail-item rail-item-sub" type="button" data-source="agents" aria-pressed="false" hidden id="source-agents">
+          <span class="rail-item-label">通用目录</span>
+          <span class="rail-count" id="count-agents">0</span>
+        </button>
+      </nav>
+
+      <div class="rail-spacer"></div>
+
+      <div class="rail-status">
+        <p class="rail-label">运行状态</p>
+        <p class="live" id="live"><span class="live-dot" aria-hidden="true"></span><span id="live-text">连接中</span></p>
+        <dl class="rail-meta">
+          <div><dt>REV</dt><dd id="meta-rev">—</dd></div>
+          <div><dt>UPDATED</dt><dd id="meta-updated">—</dd></div>
+          <div><dt>DSH</dt><dd id="meta-dsh">—</dd></div>
+        </dl>
+      </div>
+
+      <button class="rail-refresh" type="button" id="btn-refresh">
+        <span class="refresh-glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+        </span>
+        立即刷新
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-heading">
+          <h1 class="topbar-title">已装插件与技能</h1>
+          <p class="topbar-meta">本机 · 只读索引 · 每 3 秒自动同步</p>
+        </div>
+        <div class="topbar-aside">
+          <p class="topbar-count"><span id="visible-count">0</span><span class="slash">/</span><span id="total-count">0</span></p>
+          <p class="topbar-note">Entries in view</p>
+        </div>
+      </header>
+
+      <div class="search-wrap">
+        <label class="search" for="search">
+          <span class="search-glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+          </span>
+          <input id="search" type="search" placeholder="搜索名称、功能与标签" autocomplete="off" spellcheck="false" aria-label="搜索插件与技能">
+          <kbd class="search-kbd" aria-hidden="true">/</kbd>
+        </label>
+        <button class="search-clear" type="button" id="btn-clear" hidden>清除</button>
+      </div>
+
+      <div class="list-head" aria-hidden="true">
+        <span>No.</span>
+        <span>条目</span>
+        <span>功能</span>
+        <span>属性</span>
+      </div>
+
+      <section class="list" id="list" role="listbox" aria-label="插件与技能列表" tabindex="-1">
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+        <div class="skeleton" aria-hidden="true">
+          <span class="skel skel-no"></span>
+          <span class="skel skel-title"></span>
+          <span class="skel skel-line"></span>
+          <span class="skel skel-chip"></span>
+        </div>
+      </section>
+
+      <footer class="list-foot">
+        <span id="foot-note">扫描本机 DSH 安装与用户技能目录</span>
+        <span class="foot-keys">
+          <kbd>↑</kbd><kbd>↓</kbd> 选择
+          <kbd>/</kbd> 搜索
+          <kbd>Esc</kbd> 关闭
+        </span>
+      </footer>
+    </main>
+
+    <aside class="detail" id="detail" aria-label="条目详情">
+      <div class="detail-empty" id="detail-empty">
+        <div class="plate" aria-hidden="true">
+          <svg viewBox="0 0 240 240" focusable="false">
+            <circle class="ring ring-outer" cx="120" cy="120" r="116"></circle>
+            <circle class="ring" cx="120" cy="120" r="95"></circle>
+            <circle class="ring ring-inner" cx="120" cy="120" r="74"></circle>
+            <path class="ticks" d="M120 3v13M120 224v13M3 120h13M224 120h13M37 37l9 9M203 203l-9-9M203 37l-9 9M37 203l9-9"></path>
+            <circle class="spark" cx="120" cy="3.5" r="2.5"></circle>
+          </svg>
+          <div class="plate-core">
+            <span class="plate-count" id="plate-count">—</span>
+            <span class="plate-cap">ENTRIES</span>
+          </div>
+        </div>
+        <p class="plate-caption mono">LOCAL INVENTORY / 只读</p>
+        <h2>选择一个条目</h2>
+        <p class="empty-copy">点击左侧列表里的插件或技能，查看它的功能、来源与安装位置。列表会随本机文件变化自动更新。</p>
+        <dl class="empty-meta">
+          <div><dt>索引范围</dt><dd>用户技能 · 插件 · 内置</dd></div>
+          <div><dt>刷新方式</dt><dd>每 3 秒检查一次</dd></div>
+          <div><dt>读取模式</dt><dd>只读，不改动任何文件</dd></div>
+        </dl>
+      </div>
+
+      <div class="detail-content" id="detail-content" hidden>
+        <div class="detail-head">
+          <div class="detail-head-copy">
+            <h2 class="detail-title" id="d-title">—</h2>
+            <p class="detail-sub mono" id="d-sub">—</p>
+            <p class="detail-kicker" id="d-kicker">SKILL / USER</p>
+          </div>
+          <button class="detail-close" type="button" id="detail-close" aria-label="关闭详情">×</button>
+        </div>
+
+        <div class="detail-scroll">
+          <p class="detail-summary" id="d-summary">—</p>
+
+          <div class="detail-actions">
+            <button class="btn btn-primary" type="button" id="d-body">查看正文</button>
+            <button class="btn" type="button" id="d-copy">复制路径</button>
+          </div>
+
+          <section class="detail-section" id="d-tags-section">
+            <h3 class="section-title">标签</h3>
+            <div class="tags" id="d-tags"></div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="section-title">完整说明</h3>
+            <p class="detail-desc" id="d-desc">—</p>
+          </section>
+
+          <section class="detail-section" id="d-skills-section" hidden>
+            <h3 class="section-title">该插件提供的技能</h3>
+            <div class="related" id="d-skills"></div>
+          </section>
+
+          <section class="detail-section">
+            <h3 class="section-title">技术信息</h3>
+            <dl class="meta-list" id="d-meta"></dl>
+          </section>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <div class="toast-wrap" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <dialog class="body-dialog" id="body-dialog">
+    <div class="body-head">
+      <div>
+        <h2 class="body-title" id="body-title">正文</h2>
+        <p class="body-path mono" id="body-path"></p>
+        <p class="body-kicker">SOURCE / SKILL.MD</p>
+      </div>
+      <button class="btn body-close" type="button" id="body-close">关闭</button>
+    </div>
+    <div class="body-stage" id="body-stage">
+      <pre class="body-text" id="body-text">正在读取…</pre>
+    </div>
+  </dialog>
+
+  <script src="/app.js?v=13"></script>
+</body>
+</html>
