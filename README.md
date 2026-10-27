@@ -45,9 +45,18 @@ DeepSeek Harness 的技能分散在五个位置，插件信息藏在 profile 的
 - 已安装 DeepSeek Harness（没有也能打开页面，只是列表为空）
 - 不需要管理员权限
 
+### 先拿到文件
+
+任选其一：
+
+- **下载发布包**：[HarnessIndex-v1.0.0.zip](https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip)，解压到任意目录（例如 `%LOCALAPPDATA%\HarnessIndex` 或桌面上的一个文件夹）。完整性校验值见 [HarnessIndex-v1.0.0.zip.sha256](https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills/releases/download/v1.0.0/HarnessIndex-v1.0.0.zip.sha256)，可用 `certutil -hashfile HarnessIndex-v1.0.0.zip SHA256` 核对。
+- **克隆仓库**：`git clone https://github.com/HaJJJJJ/dsh--check-out-your-plugins-and-skills.git`，直接用仓库里的文件。
+
+下面的命令都在「解压后的目录」或「仓库根目录」里执行。
+
 ### 方式 A：安装到本机（推荐）
 
-在项目根目录打开 PowerShell：
+在解压后的目录（或仓库根目录）打开 PowerShell：
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
